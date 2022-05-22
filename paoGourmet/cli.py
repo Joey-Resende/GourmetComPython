@@ -1,4 +1,10 @@
 from core import *
+from time import sleep
 
-title()
+
+sleep(0.5)
 log_in()
+options()
+physical_stores()
+support()
+products()
