@@ -1,8 +1,9 @@
 from sqlmodel import Field, SQLModel
 from datetime import datetime
+from typing import Optional
 
 
-class Customers(SQLModel, table=True):
+class Users(SQLModel, table=True):
     id: Optional[int] = Field(primary_key=True, default=None, index=True)
     date: datetime = Field(default_factory=datetime.now)
     name: str

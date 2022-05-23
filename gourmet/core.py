@@ -1,7 +1,39 @@
-# from models import Customers
 from time import sleep
+from typing import List, Optional
+
+from sqlmodel import select
+
+from gourmet.database import get_session
+from gourmet.models import Users
 
 
+def add_users_to_database(
+    name: str,
+    user: str,
+    pswd: str,
+    cpf: str,
+    email: str,
+    birth: str,
+    phone: str,
+    address: str,
+) -> bool:
+    with get_session() as session:
+        user = Users(**locals())
+        session.add(user)
+        session.commit()
+
+    return True
+
+
+def get_users_from_database(style: Optional[str] = None) -> List[Users]:
+    with get_session() as session:
+        sql = select(Users)
+        if style:
+            sql = sql.where(Users.style == style)
+        return list(session.exec(sql))
+
+
+"""
 def title():
     print()
     print(f'\033[37m{" Gourmet Panificadora ":*^60}')
@@ -333,3 +365,4 @@ def products():
             print('\033[31mOpção inválida!Insira a opção 1, 2 ou 3.\033[m')
     else:
         print('\033[31mOpção inválida!Insira a opçao 1, 2, 3 ou 4.\033[m')
+"""
