@@ -4,10 +4,10 @@ from time import sleep
 
 def title():
     print()
-    print(f'{" Gourmet Panificadora ":*^60}')
+    print(f'\033[37m{" Gourmet Panificadora ":*^60}')
     print(f'* Desde 2022 garantindo o sabor e a qualidade dos produtos *')
     print(f'{" Ampla variedade em Pães, Bolos e Salgados ":*^60}')
-    print(f'{" Encontre um pãozinho quente mais perto de você! ":*^60}')
+    print(f'{" Encontre um pãozinho quente mais perto de você! ":*^60}\033[m')
     print()
 
 
@@ -16,35 +16,36 @@ def add_customer():
     title()
     sleep(0.5)
     flag: int = 0
-    name: str = input('Nome: ')
-    cpf: str = input('Cpf: ')
-    birth: str = input('Data de Nascimento: ')
-    email: str = input('Email: ')
-    phone: str = input('Telefone: ')
-    address: str = input('Endereco: ')
+    name: str = input('\033[37mNome:\033[m ')
+    cpf: str = input('\033[37mCpf:\033[m ')
+    birth: str = input('\033[37mData de Nascimento:\033[m ')
+    email: str = input('\033[37mEmail:\033[m ')
+    phone: str = input('\033[37mTelefone:\033[m ')
+    address: str = input('\033[37mEndereco:\033[m ')
     flag = 1
     sleep(0.5)
-    choice: int = int(
+    choice = int(
         input('Quer ver os dados que foram salvos? [1-Sim/2-Não]: '))
     sleep(0.5)
     if choice == 1:
         sleep(0.5)
-        print(f'Nome: {name}')
+        print(f'\033[37mNome:\033[m {name}')
         sleep(0.5)
-        print(f'Cpf: {cpf}')
+        print(f'\033[37mCpf:\033[3m {cpf}')
         sleep(0.5)
-        print(f'Data de Nascimento: {birth}')
+        print(f'\033[37mData de Nascimento:\033[3m {birth}')
         sleep(0.5)
-        print(f'E-mail: {email}')
+        print(f'\033[37mE-mail:\033[m {email}')
         sleep(0.5)
-        print(f'Telefone: {phone}')
+        print(f'\033[37mTelefone:\033[m {phone}')
         sleep(0.5)
-        print(f'Endereco: {address}')
+        print(f'\033[37mEndereco:\033[m {address}')
         sleep(0.5)
     elif choice == 2:
-        print('Cadastro do usúario efetuado com sucesso!')
+        print('\033[32mCadastro do usúario efetuado com sucesso!\033[m')
+        flag = 1
     else:
-        print('Opção inválida! Insira a opção 1, 2.')
+        print('\033[31mOpção inválida! Insira a opção 1, 2.\033[m')
 
     return flag
 
@@ -53,29 +54,30 @@ def log_in():
     sleep(0.5)
     title()
     sleep(0.5)
-    flag: int = 0
     choice = int(input('1-Login 2-Cadastro 3-Sair do Sistema: '))
     if choice == 1:
         sleep(0.5)
-        user: str = input('Usuario: ')
+        user: str = input('\033[37mUsuario:\033[m ')
         sleep(0.5)
-        pswd: str = input('Senha: ')
+        pswd: str = input('\033[37mSenha:\033[m ')
         flag = 1
     elif choice == 2:
         sleep(0.5)
         add_customer()
     elif choice == 3:
-        print('Saindo do sistema...')
+        print('\033[32mSaindo do sistema...\033[m')
         sleep(0.5)
+    else:
+        print('\033[3mOpção inválida!Insira a opçao 1, 2, 3\033[m')
 
-    return flag
+    return choice
 
 
 def physical_stores():
     sleep(0.5)
     title()
     sleep(0.5)
-    print('Loja Matriz: Avenida da Integração,\nnº 1204,\nbairro Gercino Coelho,\nPetrolina-PE\n')
+    print('\033[32mLoja Matriz: Avenida da Integração,\nnº 1204,\nbairro Gercino Coelho,\nPetrolina-PE\n')
     sleep(0.5)
     print('Loja 01: rua 1, \nnº 15, \nbairro Cohab Massangano, \nPetrolina-PE\n')
     sleep(0.5)
@@ -83,25 +85,26 @@ def physical_stores():
     sleep(0.5)
     print('Loja 03: Avenida São Francisco, \nnº 200, \nbairro Areia Branca, \nPetrolina-PE.\n')
     sleep(0.5)
-    print('Loja 04: Avenida Cardoso de Sá, \nnº 1204, \nbairro Alto Cheiroso, \nPetrolina-PE.')
+    print(
+        'Loja 04: Avenida Cardoso de Sá, \nnº 1204, \nbairro Alto Cheiroso, \nPetrolina-PE.\033[m')
     sleep(0.5)
 
 
 def support():
     sleep(0.5)
     title()
-    print('Meios de contato: ')
+    print('\033[37mMeios de contato: ')
     print()
     sleep(0.5)
-    print('Email: panificadoragourmet@gmail.com.br')
+    print('\033[33mEmail: panificadoragourmet@gmail.com.br')
     sleep(0.5)
-    print('Telefone: (87)98812-0522')
+    print('\033[34mTelefone: (87)98812-0522')
     sleep(0.5)
-    print('WhatsApp: (87)98845-2145')
+    print('\033[32mWhatsApp: (87)98845-2145')
     sleep(0.5)
 
 
-def options():
+def options_menu():
     choice: int = 0
     sleep(0.5)
     title()
@@ -131,13 +134,13 @@ def products():
             price = un * 0.50
             print()
             print(
-                f'Sua compra de {un} unidades de Pão Francês ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} unidades de Pão Francês ficará no valor \033[32mR${price:.2f}')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} unidades de Pão francês a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} unidades de Pão francês a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -146,14 +149,14 @@ def products():
             price = un * 0.75
             print()
             print(
-                f'Sua compra de {un} unidades de Pão Doce ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} unidades de Pão Doce ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} unidades de Pão Doce a R${price:.2f}')
-                println()
+                    f'\033[37mParabéns você comprou {un} unidades de Pão Doce a \033[32mR${price:.2f}\033[m')
+                print()
             else:
                 print()
         elif option == 3:
@@ -161,18 +164,18 @@ def products():
             price = un * 2.50
             print()
             print(
-                f'Sua compra de {un} unidades de Croissant ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} unidades de Croissant ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} unidades de Croissant a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} unidades de Croissant a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
         else:
-            print('Opção inválida! Insira a opção 1, 2 ou 3.')
+            print('\033[31mOpção inválida! Insira a opção 1, 2 ou 3.')
     elif choice == 2:
         print()
         print(f'{" Escolha o tipo de bolo (Bolos Inteiros) ":*^60}')
