@@ -68,7 +68,7 @@ def log_in():
         print('\033[32mSaindo do sistema...\033[m')
         sleep(0.5)
     else:
-        print('\033[3mOpção inválida!Insira a opçao 1, 2, 3\033[m')
+        print('\033[31mOpção inválida!Insira a opçao 1, 2, 3\033[m')
 
     return choice
 
@@ -126,9 +126,9 @@ def products():
     choice = int(input('1-pão, 2-bolo, 3-salgado, 4-Bebidas: '))
     if choice == 1:
         print()
-        print(f'{" Escolha o tipo do pão ":*^60}')
+        print(f'\033[37m{" Escolha o tipo do pão ":*^60}')
         option = int(
-            input('1: Francês - R$0.50| 2: Doce - R$0.75| 3: Croissant - R$2.50: '))
+            input('1: Francês - R$0.50| 2: Doce - R$0.75| 3: Croissant - R$2.50:\033[m '))
         if option == 1:
             un = int(input('Quantos Pães Francês você quer? '))
             price = un * 0.50
@@ -175,24 +175,24 @@ def products():
             else:
                 print()
         else:
-            print('\033[31mOpção inválida! Insira a opção 1, 2 ou 3.')
+            print('\033[31mOpção inválida! Insira a opção 1, 2 ou 3.\033[m')
     elif choice == 2:
         print()
-        print(f'{" Escolha o tipo de bolo (Bolos Inteiros) ":*^60}')
+        print(f'\033[37m{" Escolha o tipo de bolo (Bolos Inteiros) ":*^60}')
         option = int(input(
-            '1: Milho - R$10.65| 2: Macaxeira - R$12.15| 3: Chocolate - R$4.50(Fatia): '))
+            '1: Milho - R$10.65| 2: Macaxeira - R$12.15| 3: Chocolate - R$4.50(Fatia):\033[m '))
         if option == 1:
             un = int(input('Quantos Bolos de Milho você quer? '))
             price = un * 10.65
             print()
             print(
-                f'Sua compra de {un} unidades de Bolo de Milho ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} unidades de Bolo de Milho ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} unidades de Bolo de Milho a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} unidades de Bolo de Milho a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -201,13 +201,13 @@ def products():
             price = un * 12.15
             print()
             print(
-                f'Sua compra de {un} unidades de Bolos de Macaxeira ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} unidades de Bolos de Macaxeira ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} unidades de Bolo de Macaxeira a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} unidades de Bolo de Macaxeira a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -216,34 +216,34 @@ def products():
             price = un * 4.50
             print()
             print(
-                f'Sua compra de {un} fatias de Bolo de Chocolate ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} fatias de Bolo de Chocolate ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} fatias de Bolo de Chocolate a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} fatias de Bolo de Chocolate a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
         else:
-            print('Opção inválida!Insira a opção 1, 2 ou 3.')
+            print('\033[31mOpção inválida!Insira a opção 1, 2 ou 3.\033[m')
     elif choice == 3:
         print()
-        print(f'{" Escolha o tipo de Salgado ":*^60}')
+        print(f'\033[37m{" Escolha o tipo de Salgado ":*^60}')
         option = int(input(
-            '1: Torta de Frango - R$4.00| 2: Pizza brotinho - R$3.50| 3: Coxinha - R$3.50: '))
+            '1: Torta de Frango - R$4.00| 2: Pizza brotinho - R$3.50| 3: Coxinha - R$3.50:\033[m '))
         if option == 1:
             un = int(input('Quantos fatias de Torta de Frango você quer? '))
             price = un * 4.00
             print()
             print(
-                f'Sua compra de {un} fatias de Torta de Frango ficará no valor R${price:.2f}.')
+                f'\033[37mSua compra de {un} fatias de Torta de Frango ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = ('Deseja finalizar a compra? [1:Sim | 2:Não]: ')
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} fatias de Torta de Frango a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} fatias de Torta de Frango a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -252,13 +252,13 @@ def products():
             price = un * 3.50
             print()
             print(
-                f'Sua compra de {un} Pizza Brotinho ficará no valor R${price:.2f}.')
+                f'\033[37mSua compra de {un} Pizza Brotinho ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} Pizzas Brotinho a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} Pizzas Brotinho a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -267,34 +267,35 @@ def products():
             price = un * 3.50
             print()
             print(
-                f'Sua compra de {un} Coxinha(s) ficará no valor R${price:.2f}')
-            end_buy = int(
-                input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
-            print()
-            if end_buy == 1:
-                print(f'Parabéns você comprou {un} Coxinha(s) a R${price:.2f}')
-                print()
-            else:
-                print()
-        else:
-            print('Opção inválida! Insira a opção 1, 2 ou 3.')
-    elif choice == 4:
-        print()
-        print(f'{" Escolha o tipo de Bebida ":*^60}')
-        option = int(
-            input('1: Café Expresso - R$ 5.99| 2: Capuccino R$ 9.99 | 3: Água - R$3.50: '))
-        if option == 1:
-            un = int(input('Quantos Cafés Expresso você quer? '))
-            price = un * 5.99
-            print()
-            print(
-                f'Sua compra de {un} Café(s) Expresso ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} Coxinha(s) ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} Café(s) Expresso a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} Coxinha(s) a \033[32mR${price:.2f}\033[m')
+                print()
+            else:
+                print()
+        else:
+            print('\033[31mOpção inválida! Insira a opção 1, 2 ou 3.\033[m')
+    elif choice == 4:
+        print()
+        print(f'\033[37m{" Escolha o tipo de Bebida ":*^60}')
+        option = int(
+            input('1: Café Expresso - R$ 5.99| 2: Capuccino R$ 9.99 | 3: Água - R$3.50:\033[m '))
+        if option == 1:
+            un = int(input('Quantos Cafés Expresso você quer? '))
+            price = un * 5.99
+            print()
+            print(
+                f'\033[37mSua compra de {un} Café(s) Expresso ficará no valor \033[32mR${price:.2f}\033[m')
+            end_buy = int(
+                input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
+            print()
+            if end_buy == 1:
+                print(
+                    f'\033[37mParabéns você comprou {un} Café(s) Expresso a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -303,13 +304,13 @@ def products():
             price = un * 9.99
             print()
             print(
-                f'Sua compra de {un} Capuccino(s) ficará no valor R${price:.2f}')
+                f'\033[37mSua compra de {un} Capuccino(s) ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
                 print(
-                    f'Parabéns você comprou {un} Capuccino(s) a R${price:.2f}')
+                    f'\033[37mParabéns você comprou {un} Capuccino(s) a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
@@ -317,16 +318,18 @@ def products():
             un = int(input('Quantos Águas você quer? '))
             price = un * 3.50
             print()
-            print(f'Sua compra de {un} Águas(s) ficará no valor R${price:.2f}')
+            print(
+                f'\033[37mSua compra de {un} Águas(s) ficará no valor \033[32mR${price:.2f}\033[m')
             end_buy = int(
                 input('Deseja finalizar a compra? [1:Sim | 2:Não]: '))
             print()
             if end_buy == 1:
-                print(f'Parabéns você comprou %d Águas(s) a R${price:.2f}')
+                print(
+                    f'\033[37mParabéns você comprou %d Águas(s) a \033[32mR${price:.2f}\033[m')
                 print()
             else:
                 print()
         else:
-            print('Opção inválida!Insira a opção 1, 2 ou 3.')
+            print('\033[31mOpção inválida!Insira a opção 1, 2 ou 3.\033[m')
     else:
-        print('Opção inválida!Insira a opçao 1, 2, 3 ou 4.')
+        print('\033[31mOpção inválida!Insira a opçao 1, 2, 3 ou 4.\033[m')

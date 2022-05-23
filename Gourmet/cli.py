@@ -3,8 +3,6 @@ from time import sleep
 
 
 sleep(0.5)
-
-
 while True:
     choice = log_in()
     if choice == 3:
