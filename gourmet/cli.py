@@ -1,4 +1,4 @@
-from core import *
+from gourmet.core import *
 from time import sleep
 from typing import Optional
 
@@ -26,7 +26,7 @@ def add_users(
     address: str,
 ):
     """Adiciona um usuario no sistema."""
-    if log_in(name, user, pswd, cpf, email, birth, phone, adddress):
+    if add_users_to_database(name, user, pswd, cpf, email, birth, phone, address):
         print('Usuario adicionado no banco de dados!')
     else:
         print('⛈️ deu ruim')

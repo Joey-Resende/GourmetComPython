@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "gourmetcompython"
+name = "gourmet"
 version = "0.1.0"
 description = "App para panificadora"
 authors = ["Joey-Resende <givanildo.resende@gmail.com>"]
