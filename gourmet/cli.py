@@ -8,13 +8,14 @@ from rich.console import Console
 from rich.table import Table
 
 from gourmet.core import add_users_to_database, get_users_from_database
+from gourmet.core import add_products_to_database, get_products_from_database
 
 main = typer.Typer(help='gourmet')
 
 console = Console()
 
 
-@main.command('add')
+@main.command('addUsers')
 def add_users(
     name: str,
     user: str,
@@ -32,7 +33,7 @@ def add_users(
         print('⛈️ deu ruim')
 
 
-@main.command('list')
+@main.command('listUsers')
 def list_users(style: Optional[str] = None):
     """Lists users from the database."""
     users = get_users_from_database(style)
@@ -58,6 +59,50 @@ def list_users(style: Optional[str] = None):
     for user in users:
         user.date = user.date.strftime('%Y-%m-%d')
         values = [str(getattr(user, header)) for header in headers]
+        table.add_row(*values)
+    console.print(table)
+
+
+@main.command('addProducts')
+def add_products(
+    type_product: str,
+    name: str,
+    isbn: str,
+    description: str,
+    price: str,
+    quant: str,
+):
+    """Adiciona um produto no sistema."""
+    if add_products_to_database(type_product, name, isbn, description, price, quant):
+        print('Produto adicionado no banco de dados!')
+    else:
+        print('⛈️ deu ruim')
+
+
+@main.command('listProducts')
+def list_products(style: Optional[str] = None):
+    """Lists products from the database."""
+    products = get_products_from_database(style)
+    table = Table(
+        title='Gourmet Panificadora'
+        if not style
+        else f'Gourmet Panificadora {style}'
+    )
+    headers = [
+        'id',
+        'date',
+        'type_product',
+        'name',
+        'isbn',
+        'description',
+        'price',
+        'quant',
+    ]
+    for header in headers:
+        table.add_column(header, style='blue')
+    for product in products:
+        product.date = product.date.strftime('%Y-%m-%d')
+        values = [str(getattr(product, header)) for header in headers]
         table.add_row(*values)
     console.print(table)
 

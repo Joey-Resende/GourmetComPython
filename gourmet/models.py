@@ -14,3 +14,14 @@ class Users(SQLModel, table=True):
     birth: str
     phone: str
     address: str
+
+
+class Products(SQLModel, table=True):
+    id: Optional[int] = Field(primary_key=True, default=None, index=True)
+    date: datetime = Field(default_factory=datetime.now)
+    type_product: str
+    name: str
+    isbn: str
+    description: str
+    price: str
+    quant: str

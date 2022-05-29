@@ -4,7 +4,7 @@ from typing import List, Optional
 from sqlmodel import select
 
 from gourmet.database import get_session
-from gourmet.models import Users
+from gourmet.models import Users, Products
 
 
 def add_users_to_database(
@@ -30,6 +30,30 @@ def get_users_from_database(style: Optional[str] = None) -> List[Users]:
         sql = select(Users)
         if style:
             sql = sql.where(Users.style == style)
+        return list(session.exec(sql))
+
+
+def add_products_to_database(
+    type_product: str,
+    name: str,
+    isbn: str,
+    description: str,
+    price: str,
+    quant: str,
+) -> bool:
+    with get_session() as session:
+        product = Products(**locals())
+        session.add(product)
+        session.commit()
+
+    return True
+
+
+def get_products_from_database(style: Optional[str] = None) -> List[Products]:
+    with get_session() as session:
+        sql = select(Products)
+        if style:
+            sql = sql.where(Products.style == style)
         return list(session.exec(sql))
 
 
