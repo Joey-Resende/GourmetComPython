@@ -1,0 +1,1 @@
+printt('ajuda')
